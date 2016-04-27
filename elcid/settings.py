@@ -179,6 +179,7 @@ INSTALLED_APPS = (
     'dischargesummary',
     'djcelery',
     'taskrunner',
+    'pathway',
 )
 
 if 'test' in sys.argv:
