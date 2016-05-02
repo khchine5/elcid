@@ -19,14 +19,6 @@ class AddPatientPathway(RedirectsToEpisodeMixin, Pathway):
         ),
         Step(
             model=Diagnosis,
-            template_url="elcid/templates/diagnosis_form.html"
+            template_url="elcid/templates/forms/diagnosis_form.html"
         )
     )
-
-    def save(self, data, user):
-        episode = super(AddPatientPathway, self).save(data, user)
-
-        # TODO: This should be refactored into the relevant step
-        tagging = data["tagging"]
-        episode.set_tag_names(tagging, user)
-        return episode
