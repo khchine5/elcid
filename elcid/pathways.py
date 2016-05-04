@@ -2,13 +2,14 @@ from opal.models import Diagnosis
 
 
 from pathway.pathways import (
-    Pathway, Step, RedirectsToEpisodeMixin
+    ModalPathway, Step, RedirectsToEpisodeMixin
 )
 
 
-class AddPatientPathway(RedirectsToEpisodeMixin, Pathway):
+class AddPatientPathway(RedirectsToEpisodeMixin, ModalPathway):
     display_name = "Add Patient"
     slug = 'add_patient'
+    
 
     steps = (
         Step(
@@ -17,8 +18,8 @@ class AddPatientPathway(RedirectsToEpisodeMixin, Pathway):
             title="Find Patient",
             icon="fa fa-user"
         ),
-        Step(
-            model=Diagnosis,
-            template_url="elcid/templates/forms/diagnosis_form.html"
-        )
+        # Step(
+        #     model=Diagnosis,
+        #     template_url="elcid/templates/forms/diagnosis_form.html"
+        # )
     )
